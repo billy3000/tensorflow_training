@@ -1,0 +1,6 @@
+matplotlib==3.10.9
+pandas==3.0.3
+scikit-learn==1.9.0
+scipy==1.17.1
+tensorboard
+nvidia-cudnn-cu12==9.24.0.43

@@ -1,0 +1,24 @@
+Bootstrap: docker
+From: tensorflow/tensorflow:2.20.0-gpu
+
+%files
+    requirements.txt /opt/requirements.txt
+
+%post
+    # 基本パッケージのインストール
+    apt-get update && apt-get install -y --no-install-recommends \
+        git curl ca-certificates
+    rm -rf /var/lib/apt/lists/*
+
+    # pipの最新化と uv のインストール
+    python3 -m pip install --upgrade pip
+    python3 -m pip install uv
+
+    # uvを用いてシステム環境(--system)に高速インストール
+    uv pip install --system -r /opt/requirements.txt
+
+    mkdir -p /work
+
+%environment
+    export PYTHONPATH=/work
+    export TF_CPP_MIN_LOG_LEVEL=2
