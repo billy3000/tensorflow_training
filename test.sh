@@ -7,7 +7,7 @@
 USER_HOME="$HOME"
 USER_WORK="${USER_HOME/home/work}"
 OUTPUT_DIR="${USER_WORK}/containers"
-OUTPUT_SIF="${OUTPUT_DIR}/tf_2.20.sif"
+OUTPUT_SIF="${OUTPUT_DIR}/tf_2.20_jupyter.sif"
 
 apptainer exec --nv $OUTPUT_SIF python3 -c "
 import tensorflow as tf
